@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Orçamento de Sites</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f0f8ff;
+            color: #333;
+            text-align: center;
+        }
+
+        .container {
+            width: 90%;
+            max-width: 1000px;
+            margin: 20px auto;
+            background: #ffffff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+
+        h1 {
+            color: #007bff;
+        }
+
+        table {
+            width: 100%;
+            margin-top: 20px;
+            border-collapse: collapse;
+        }
+
+        th, td {
+            border: 1px solid #ddd;
+            padding: 12px;
+            text-align: center;
+        }
+
+        th {
+            background: #007bff;
+            color: #fff;
+        }
+
+        form {
+            margin-top: 20px;
+        }
+
+        input, select, button {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            border-radius: 5px;
+            border: 1px solid #ddd;
+            font-size: 16px;
+        }
+
+        button {
+            background: #25D366;
+            color: white;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background: #1EBE5D;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h1>💻 Tabela de Preços de Sites</h1>
+
+        <table>
+            <tr>
+                <th>Tipo de Site</th>
+                <th>Preço Médio (BRL)</th>
+                <th>Características</th>
+            </tr>
+            <tr>
+                <td>Site Institucional Simples</td>
+                <td>R$ 800 - R$ 2.500</td>
+                <td>Páginas básicas (Home, Contato, Serviços).</td>
+            </tr>
+            <tr>
+                <td>E-commerce</td>
+                <td>R$ 3.000 - R$ 15.000</td>
+                <td>Loja virtual completa com pagamentos online.</td>
+            </tr>
+            <tr>
+                <td>Blog Profissional</td>
+                <td>R$ 1.000 - R$ 5.000</td>
+                <td>Plataforma para artigos e posts otimizados para SEO.</td>
+            </tr>
+            <tr>
+                <td>Landing Page</td>
+                <td>R$ 500 - R$ 2.000</td>
+                <td>Página única para captura de leads e conversões.</td>
+            </tr>
+            <tr>
+                <td>Marketplace</td>
+                <td>R$ 10.000 - R$ 50.000</td>
+                <td>Plataforma multivendedores tipo OLX, Mercado Livre.</td>
+            </tr>
+            <tr>
+                <td>Sistema Web Personalizado</td>
+                <td>R$ 5.000 - R$ 100.000</td>
+                <td>CRM, ERP ou painel administrativo sob demanda.</td>
+            </tr>
+        </table>
+
+        <h2>📩 Solicite um Orçamento</h2>
+        <form id="formOrcamento">
+            <input type="text" id="nome" placeholder="Seu Nome" required>
+            <input type="email" id="email" placeholder="Seu E-mail" required>
+            <select id="tipoSite" required>
+                <option value="">Selecione um tipo de site</option>
+                <option value="Site Institucional Simples">Site Institucional Simples</option>
+                <option value="E-commerce">E-commerce</option>
+                <option value="Blog Profissional">Blog Profissional</option>
+                <option value="Landing Page">Landing Page</option>
+                <option value="Marketplace">Marketplace</option>
+                <option value="Sistema Web Personalizado">Sistema Web Personalizado</option>
+            </select>
+            <button type="button" onclick="enviarWhatsApp()">Enviar pelo WhatsApp</button>
+        </form>
+    </div>
+
+    <script>
+        function enviarWhatsApp() {
+            let nome = document.getElementById("nome").value;
+            let email = document.getElementById("email").value;
+            let tipoSite = document.getElementById("tipoSite").value;
+
+            if (!nome || !email || !tipoSite) {
+                alert("Preencha todos os campos!");
+                return;
+            }
+
+            let numeroWhatsApp = "5538998477497"; // Coloque seu número com DDD (Ex: 5531999999999)
+            let mensagem = `Olá! Meu nome é ${nome} e gostaria de um orçamento para um ${tipoSite}. Meu e-mail é ${email}. Aguardo retorno!`;
+
+            let url = `https://api.whatsapp.com/send?phone=${numeroWhatsApp}&text=${encodeURIComponent(mensagem)}`;
+
+            window.open(url, "_blank");
+        }
+    </script>
+
+</body>
+</html>
